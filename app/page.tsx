@@ -1,11 +1,15 @@
 import MainArticleSection from "@/components/main-article-section";
+import { Suspense } from "react";
 
 import SmoothScroll from "./providers/lenis-scroll";
 
 export default function Home() {
   return (
-    <SmoothScroll>
-      <MainArticleSection />
-    </SmoothScroll>
+    <Suspense fallback={<div>Loading scroll...</div>}>
+      <SmoothScroll>
+        <MainArticleSection />
+      </SmoothScroll>
+    </Suspense>
+
   )
 }

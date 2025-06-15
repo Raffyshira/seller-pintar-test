@@ -35,7 +35,7 @@ import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
-export default function UserMenu({ isVisible }: { isVisible: boolean }) {
+export default function UserMenu({ isVisible }: { isVisible?: boolean }) {
   const [showDeleteDialog, setShowDeleteDialog] = useState(false);
   const router = useRouter();
 
