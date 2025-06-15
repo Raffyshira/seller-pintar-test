@@ -1,6 +1,7 @@
 "use client"
 
 import {
+  House,
   LogOut,
   Newspaper,
   Tag
@@ -25,6 +26,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const userId = useUser();
   const data = {
     navMain: [
+      {
+        title: "Homepage",
+        url: "/",
+        icon: House,
+      },
       {
         title: "Article",
         url: `/dashboard/${userId.user?.id}`,
