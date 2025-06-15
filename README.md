@@ -1,36 +1,131 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛍️ Seller Pintar CMS Blog
 
-## Getting Started
+Seller Pintar adalah sistem manajemen konten (CMS) yang dibuat dengan **Next.js App Router**, **Supabase**, dan **Tailwind CSS**. Aplikasi ini memungkinkan pengguna untuk membuat, mengedit, menghapus, dan melihat artikel blog yang dikategorikan, lengkap dengan fitur preview, markdown editor, dan sistem autentikasi.
 
-First, run the development server:
+## ✨ Fitur Utama
 
-```bash
+- 🔐 Autentikasi login & register menggunakan Supabase
+- 🧠 CRUD Kategori & Artikel
+- 🖋️ Editor artikel
+- 🧾 Validasi form menggunakan Zod
+- 🔍 Search, pagination, dan debounce di daftar artikel
+- 🖼️ Upload gambar (URL-based)
+- 🧭 Routing dinamis dengan proteksi akses halaman
+- 📱 Desain responsif dengan Tailwind CSS
+
+## 🚀 Teknologi yang Digunakan
+
+- [Next.js 14 (App Router)](https://nextjs.org/)
+- [Supabase](https://supabase.io/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Zod](https://zod.dev/)
+- [Shadcn/UI](https://ui.shadcn.dev/)
+- [Lucide React Icons](https://lucide.dev/icons)
+
+## 🧱 Struktur Folder
+
+\`\`\`bash
+├── app/
+│   ├── login/              # Halaman login
+│   ├── register/           # Halaman register
+│   ├── dashboard/          # Dashboard kategori & artikel
+│   └── article/[slug]/     # Halaman detail artikel (dynamic route)
+│
+├── components/             # UI dan form component
+│   └── dashboard-components/
+│
+├── lib/                    # Supabase client & validasi Zod
+│
+├── public/                 # Gambar statis & asset
+├── styles/                 # Global styles
+\`\`\`
+
+## 📦 Instalasi
+
+1. **Clone repo ini**
+
+\`\`\`bash
+git clone https://github.com/Raffyshira/seller-pintar-test.git
+cd seller-pintar-test
+\`\`\`
+
+2. **Install dependencies**
+
+\`\`\`bash
+npm install
+\`\`\`
+
+3. **Setup Supabase**
+
+- Buat project baru di [Supabase](https://app.supabase.io/)
+- Salin \`anon key\` dan \`project URL\`, lalu buat file \`.env.local\`:
+
+\`\`\`env
+NEXT_PUBLIC_SUPABASE_URL=your_project_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
+\`\`\`
+
+4. **Setup Tabel Supabase**
+
+Kamu membutuhkan tabel berikut:
+
+- \`categories\`:
+  - \`id\` (UUID, Primary Key)
+  - \`name\` (Text)
+
+- \`articles\`:
+  - \`id\` (UUID, Primary Key)
+  - \`title\` (Text)
+  - \`slug\` (Text)
+  - \`content\` (Text)
+  - \`thumbnail\` (Text)
+  - \`category_id\` (UUID, Foreign Key)
+  - \`created_at\` (Timestamp)
+
+**Relasi:** \`articles.category_id → categories.id\`
+
+5. **Jalankan proyek**
+
+\`\`\`bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+\`\`\`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🧪 Fitur CMS
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 🔖 Kategori
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Buat, edit, dan hapus kategori
+- Filter artikel berdasarkan kategori
 
-## Learn More
+### 📝 Artikel
 
-To learn more about Next.js, take a look at the following resources:
+- Buat & edit artikel dengan editor markdown (Tiptap)
+- Fitur preview sebelum publish
+- Slug URL otomatis dari judul
+- Menampilkan artikel terkait di halaman detail
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛠️ Pengembangan
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Build untuk production
 
-## Deploy on Vercel
+\`\`\`bash
+npm run build
+npm run start
+\`\`\`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Testing
+Username: Admin
+Password: Admin12345
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Deployment
+
+- Dapat langsung dideploy ke [Vercel](https://vercel.com/) atau [Netlify](https://netlify.com/)
+- Pastikan environment variable diatur dengan benar di dashboard deploy
+
+## 🙋‍♂️ Kontribusi
+
+Pull Request terbuka untuk perbaikan, refactor, atau penambahan fitur baru.
+
+## 📄 Lisensi
+
+MIT License © 2025 Rafi Ahsira Prayoga
