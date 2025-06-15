@@ -1,3 +1,4 @@
+
 # 🛍️ Seller Pintar CMS Blog
 
 Seller Pintar adalah sistem manajemen konten (CMS) yang dibuat dengan **Next.js App Router**, **Supabase**, dan **Tailwind CSS**. Aplikasi ini memungkinkan pengguna untuk membuat, mengedit, menghapus, dan melihat artikel blog yang dikategorikan, lengkap dengan fitur preview, markdown editor, dan sistem autentikasi.
@@ -24,7 +25,7 @@ Seller Pintar adalah sistem manajemen konten (CMS) yang dibuat dengan **Next.js 
 
 ## 🧱 Struktur Folder
 
-\`\`\`bash
+```bash
 ├── app/
 │   ├── login/              # Halaman login
 │   ├── register/           # Halaman register
@@ -38,32 +39,32 @@ Seller Pintar adalah sistem manajemen konten (CMS) yang dibuat dengan **Next.js 
 │
 ├── public/                 # Gambar statis & asset
 ├── styles/                 # Global styles
-\`\`\`
+```
 
 ## 📦 Instalasi
 
 1. **Clone repo ini**
 
-\`\`\`bash
+```bash
 git clone https://github.com/Raffyshira/seller-pintar-test.git
 cd seller-pintar-test
-\`\`\`
+```
 
 2. **Install dependencies**
 
-\`\`\`bash
+```bash
 npm install
-\`\`\`
+```
 
 3. **Setup Supabase**
 
 - Buat project baru di [Supabase](https://app.supabase.io/)
 - Salin \`anon key\` dan \`project URL\`, lalu buat file \`.env.local\`:
 
-\`\`\`env
+```env
 NEXT_PUBLIC_SUPABASE_URL=your_project_url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
-\`\`\`
+```
 
 4. **Setup Tabel Supabase**
 
@@ -86,9 +87,9 @@ Kamu membutuhkan tabel berikut:
 
 5. **Jalankan proyek**
 
-\`\`\`bash
+```bash
 npm run dev
-\`\`\`
+```
 
 ## 🧪 Fitur CMS
 
@@ -108,13 +109,14 @@ npm run dev
 
 ### Build untuk production
 
-\`\`\`bash
+```bash
 npm run build
 npm run start
-\`\`\`
+```
 
 ### Testing
 Username: Admin
+
 Password: Admin12345
 
 ### Deployment
